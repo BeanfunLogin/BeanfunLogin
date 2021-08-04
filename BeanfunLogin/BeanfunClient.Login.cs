@@ -36,10 +36,6 @@ namespace BeanfunLogin
                 if (!regex.IsMatch(response))
                 { this.errmsg = "LoginNoViewstateGenerator"; return null; }
                 string viewstateGenerator = regex.Match(response).Groups[1].Value;
-                regex = new Regex("id=\"LBD_VCID_c_login_idpass_form_samplecaptcha\" value=\"(.*)\" />");
-                if (!regex.IsMatch(response))
-                { this.errmsg = "LoginNoSamplecaptcha"; return null; }
-                string samplecaptcha = regex.Match(response).Groups[1].Value;
 
                 NameValueCollection payload = new NameValueCollection();
                 payload.Add("__EVENTTARGET", "");
@@ -49,9 +45,7 @@ namespace BeanfunLogin
                 payload.Add("__EVENTVALIDATION", eventvalidation);
                 payload.Add("t_AccountID", id);
                 payload.Add("t_Password", pass);
-                payload.Add("CodeTextBox", "");
                 payload.Add("btn_login", "登入");
-                payload.Add("LBD_VCID_c_login_idpass_form_samplecaptcha", samplecaptcha);
 
                 response = Encoding.UTF8.GetString(this.UploadValues("https://tw.newlogin.beanfun.com/login/id-pass_form.aspx?skey=" + skey, payload));
 
