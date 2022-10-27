@@ -200,7 +200,7 @@ namespace BeanfunLogin
                     }
                 }
 
-                processStart(procPath, "tw.login.maplestory.gamania.com 8484 BeanFun " + sacc + " " + otp);
+                processStart(procPath, "tw.login.maplestory.beanfun.com 8484 BeanFun " + sacc + " " + otp);
             }
 
 
