@@ -273,7 +273,7 @@ namespace BeanfunLogin
                 JObject o = JObject.Parse(json);
                 foreach (var game in o["Rows"])
                 {
-                    Debug.Write(game["serviceCode"]);
+                    Debug.Write(game["ServiceCode"]);
                     this.comboBox2.Items.Add((string)game["ServiceFamilyName"]);
                     gameList.Add(new GameService((string)game["ServiceFamilyName"], (string)game["ServiceCode"], (string)game["ServiceRegion"]));
                 }
